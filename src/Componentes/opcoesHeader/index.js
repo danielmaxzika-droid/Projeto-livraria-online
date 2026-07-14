@@ -1,5 +1,6 @@
 import styled from 'styled-components'
-const textoOpcoes = ['CATEGORIAS', 'MINHA ESTANTE', 'FAVORITOS'];
+import { Link } from 'react-router-dom'
+const textoOpcoes = ['CATEGORIAS', 'ESTANTE', 'FAVORITOS'];
 
 const Opcao = styled.li`
   min-width: 120px;
@@ -21,7 +22,11 @@ function OpcoesHeader() {
     return (
     <Opcoes>
         { textoOpcoes.map( (texto) => (
-            <Opcao><p>{texto}</p></Opcao>))} 
+            <Link to={`/${texto.toLowerCase()}`}>
+              <Opcao>
+                <p>{texto}</p>
+              </Opcao>
+            </Link>  ))} 
     </Opcoes>
 )}
 
